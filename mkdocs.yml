@@ -1,0 +1,146 @@
+# Project information
+site_name: "CAIS Compute Cluster"
+site_url: "https://compute.safe.ai/"
+site_author: "Center for AI Safety"
+site_description: >-
+  Documentation for the CAIS Compute Cluster, dedicated to AI/ML
+  safety research.
+
+# Repository
+repo_name: "centerforaisafety/cluster-docs"
+repo_url: "https://github.com/centerforaisafety/cluster-docs"
+
+# Copyright
+copyright: "Copyright © 2025 Center for AI Safety"
+
+# Configuration
+theme:
+  name: material
+  logo: assets/safe.png
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Plugins
+plugins: 
+  - blog
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+# Hooks
+# Todo: Do we need this?
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: 
+      - Home: index.md
+      - Cluster Overview: cluster-overview.md
+  - Getting Started: 
+      - Getting Started: getting-started/index.md
+  - Guides:
+      - SSH: 
+          - What is SSH?: guides/what-is-ssh.md
+          - How to use SSH keys: guides/how-to-use-ssh-keys.md
+      - Slurm:
+          - What is Slurm?: guides/what-is-slurm.md
+          - How we configured Slurm: guides/how-we-configured-slurm.md
+      - Connect to the cluster: 
+          - With CLI: guides/connect-with-cli.md
+# todo          - With VSCode: guides/connect-with-vscode.md
+# todo          - With Jupyter Notebook: guides/connect-with-juypter.md
+      - Running Jobs: 
+          - CPU jobs: guides/cpu-jobs.md
+# todo          - GPU jobs: guides/gpu-jobs.md
+# todo         - Nulti-node jobs: guides/multi-node-jobs.md
+      - Collaboration:
+          - How to use the global Hugging Face model cache: guides/hugging-face-model-cache.md
+          - How to share files and directories: guides/how-to-share-files-and-directories.md
+          - How to request a shared folder: guides/how-to-request-a-shared-folder.md
+      - Configuration:
+          - How to switch your shell: guides/how-to-switch-your-shell.md
+          - How to configure job notifications: guides/how-to-configure-job-notifications.md
+          - How to request additional filesystem storage: guides/how-to-request-additional-filesystem-storage.md
+          - How to install Miniconda or Anaconda: guides/how-to-install-miniconda-or-anaconda.md
+          - How to resurrect your tmux sessions: guides/how-to-resurrect-your-tmux-sessions.md
