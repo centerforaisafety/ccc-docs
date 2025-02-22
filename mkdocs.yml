@@ -1,6 +1,6 @@
 # Project information
 site_name: "CAIS Compute Cluster"
-site_url: "https://compute.safe.ai/"
+site_url: "https://centerforaisafety.github.io/ccc-docs"
 site_author: "Center for AI Safety"
 site_description: >-
   Documentation for the CAIS Compute Cluster, dedicated to AI/ML
