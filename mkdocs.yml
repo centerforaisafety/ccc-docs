@@ -16,7 +16,7 @@ copyright: "Copyright © 2025 Center for AI Safety"
 # Configuration
 theme:
   name: material
-  logo: assets/safe.png
+  logo: assets/cais_icon_white_text.png
   features:
     - content.action.edit
     - content.action.view
