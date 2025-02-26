@@ -2,7 +2,7 @@
 
 ## **What is Slurm?**
 
-The CAIS Compute Cluster uses [Slurm](https://slurm.schedmd.com/), an open-source resource manager and job scheduler, used by many of the world's [supercomputers and computer clusters](https://top500.org/).
+The CAIS Compute Cluster uses [Slurm](https://slurm.schedmd.com/), an open-source resource manager and job scheduler.
 
 Slurm supports a variety of job submission techniques. By accurately requesting the resources you need, you’ll be able to get your work done.
 
@@ -15,6 +15,8 @@ Slurm allows requesting resources and submitting jobs in a variety of ways. The 
 | `salloc` | Request resources and allocates them to a job | Starts a new shell, but does not execute anything |
 | `srun`   | Request resources and runs a command on the allocated compute node(s) | Blocking command: will not return until the job ends |
 | `sbatch` | Request resources and runs a script on the allocated compute node(s) | Asynchronous command: will return as soon as the job is submitted |
+
+For usage examples, check out requesting [CPU jobs](cpu-jobs.md) and [GPU jobs](gpu-jobs.md).
 
 ## **How we configured Slurm**
 The priority of your jobs in the Slurm queue is determined based on the size of the job, the time you’ve been waiting and your group’s previous usage relative to other groups (“fair share”, in Slurm’s terminology).

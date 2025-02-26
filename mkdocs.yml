@@ -121,7 +121,7 @@ nav:
       - Getting Started: getting-started/index.md
   - Guides:
       - Overview: guides/index.md
-      - Connect to the cluster: 
+      - 'Connect to the cluster': 
           - What is SSH?: guides/connect/what-is-ssh.md
           - Command line: guides/connect/cli.md
           - VSCode: guides/connect/vscode.md

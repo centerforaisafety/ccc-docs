@@ -1,7 +1,7 @@
 # Getting Started
 
 ## Access
-- Have your PI (Principal Investigator) reach out to a CAIS Compute Cluster admin.
+- Have your Principal Investigator reach out to a CAIS Compute Cluster admin.
 - Once approved, you will receive a username.
 
 ## Logging in
@@ -15,6 +15,8 @@ $ <username>@cais-login-0:~$
 ```
 
 Upon logging in, you will be connected to a login node (e.g., `cais-login-0`).
+
+If you are having trouble logging in check out our section on [SSH](/ccc-docs/guides/connect/what-is-ssh/).
 
 !!! warning "Login nodes are not for computing"
     Login nodes are shared among many users and must not be used for computationally intensive tasks. 

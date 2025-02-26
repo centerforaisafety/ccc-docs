@@ -4,7 +4,7 @@
 
 !!! info "Prerequisites"
     - You can SSH into the cluster (e.g. ssh username@compute.safe.ai).
-    - You already have Anaconda (or another Python environment) installed.  
+    - Anaconda (or another Python environment) installed.  
 
 ### **Connect to the Cluster**
 
