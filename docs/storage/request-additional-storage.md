@@ -1,4 +1,4 @@
-# Configuration
+# Storage
 
 ## **How to request additional filesystem storage**
 

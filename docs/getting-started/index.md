@@ -2,7 +2,7 @@
 
 ## Access
 - Have your PI (Principal Investigator) reach out to a CAIS Compute Cluster admin.
-- Once approved, you **will** receive a username.
+- Once approved, you will receive a username.
 
 ## Logging in
 Access to the CAIS Compute Cluster is provided via Secure Shell ([SSH](/ccc-docs/guides/connect/what-is-ssh/)) login. Most Unix-like operating systems provide an SSH client by default that can be accessed by typing the ssh command in a terminal window.

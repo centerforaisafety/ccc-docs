@@ -119,30 +119,25 @@ nav:
       - Home: index.md
   - Getting Started: 
       - Getting Started: getting-started/index.md
-# todo      - Cluster Policies: getting-started/cluster-policies.md
   - Guides:
       - Overview: guides/index.md
       - Connect to the cluster: 
           - What is SSH?: guides/connect/what-is-ssh.md
-          - How to use SSH keys: guides/connect/how-to-use-ssh-keys.md
-          - With the command line: guides/connect/with-cli.md
-          - With VSCode: guides/connect/with-vscode.md
-          - With Jupyter Notebook: guides/connect/with-juypter.md
+          - Command line: guides/connect/cli.md
+          - VSCode: guides/connect/vscode.md
+          - Jupyter Notebook: guides/connect/juypter.md
       - Running Jobs: 
           - What is Slurm?: guides/running-jobs/what-is-slurm.md
-          - How we configured Slurm: guides/running-jobs/how-we-configured-slurm.md
           - CPU jobs: guides/running-jobs/cpu-jobs.md
           - GPU jobs: guides/running-jobs/gpu-jobs.md
-      - Collaboration on the cluster:
-          - How to use the global Hugging Face model cache: guides/collaboration/hugging-face-model-cache.md
-          - How to share files and directories: guides/collaboration/how-to-share-files-and-directories.md
-          - How to request a shared folder: guides/collaboration/how-to-request-a-shared-folder.md
+          - Notifications: guides/running-jobs/notifications.md
       - Configure your environment:
-          - How to switch your shell: guides/configuration/how-to-switch-your-shell.md
-          - How to configure job notifications: guides/configuration/how-to-configure-job-notifications.md
-          - How to request additional filesystem storage: guides/configuration/how-to-request-additional-filesystem-storage.md
+          - Switch your shell: guides/configuration/switch-your-shell.md
           - How to install Miniconda or Anaconda: guides/configuration/how-to-install-miniconda-or-anaconda.md
           - How to resurrect your tmux sessions: guides/configuration/how-to-resurrect-your-tmux-sessions.md
-  - Storage: storage/index.md
+  - Storage: 
+      - Storage: storage/index.md
+      - Hugging Face model cache: storage/hugging-face-model-cache.md
+      - Request additional storage: storage/request-additional-storage.md
   - FAQ: 
       - Frequently Asked Questions: faq/index.md

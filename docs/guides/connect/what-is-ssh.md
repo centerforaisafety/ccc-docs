@@ -1,4 +1,4 @@
-# SSH 
+# Connect to the cluster
 
 ## **What is SSH?**
 
@@ -27,6 +27,50 @@ ssh -v
 
 You should see a list of usage options. If you see an output indicating that the command was not found, install an SSH client. Two popular options are OpenSSH and Putty.
 
-### What’s next?
+### **Create an SSH key pair**
+If you already have a public/private key pair of a supported format, you can use that pair instead of generating a new one.
 
-In our guide How to use SSH keys, learn how to generate an public/private key pair and use it to connect to the cluster.
+Follow the steps below to generate a key pair with a command-line tool called `ssh-keygen`. This tool is pre-installed on nearly all operating systems.
+
+Use any supported format for your key pair. The tabs below contain instructions for generating a key pair with either the Ed25519 algorithm or RSA algorithm.
+
+=== "ED25519"
+
+    ```sh
+    # Generate the key pair 
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    # If prompted to enter a filename, press `Enter` to save the key pair to the default location (`~/.ssh/`). 
+    # When prompted to enter a passphrase, you can optionally do so to increase secruity.
+    ```
+
+    ```sh
+    # Confirm that your key pair was created
+    ls ~/.ssh
+    ```
+
+    ```sh
+    # View your public key
+    cat ~/.ssh/id_ed25519.pub
+    ```
+
+=== "RSA"
+
+    ```sh
+    # Generate the key pair
+    ssh-keygen -C "your_email@example.com"
+    # If prompted to enter a filename, press `Enter` to save the key pair to the default location (`~/.ssh/`). 
+    # When prompted to enter a passphrase, you can optionally do so to increase secruity.
+    ```
+
+    ```sh
+    # Confirm that your key pair was created
+    ls ~/.ssh
+    ```
+
+    ```sh
+    # View your public key
+    cat ~/.ssh/id_rsa.pub
+    ```
+
+???+ Warning
+    With any public/private key pair that you generate, your public key can be shared freely. Your private key should be just that—private! Take care not to share it with others, or in public repositories such as in GitHub.

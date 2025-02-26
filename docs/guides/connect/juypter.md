@@ -1,23 +1,16 @@
 # Connect to the cluster
 
-## **With Jupyter**
+## **How to connect with Jupyter**
 
 !!! info "Prerequisites"
-    Below is a more polished set of instructions for running a Jupyter Notebook on the CAIS cluster. They assume:
-    
+    - You can SSH into the cluster (e.g. ssh username@compute.safe.ai).
     - You already have Anaconda (or another Python environment) installed.  
-    - You can SSH into the cluster (e.g. ssh <username>@compute.safe.ai).  
-    - You have Slurm access to request compute nodes with srun.  
 
 ### **Connect to the Cluster**
 
-If your ~/.ssh/config is configured to allow ssh cais_cluster, simply do:
 ```sh
 ssh -i ~/.ssh/id_ed25519 <username>@compute.safe.ai
 ```
-
-???+ Warning
-    Please do not run heavy computations on the login node. This includes installing things (request a CPU node to do so).
 
 ### **Install or Confirm Jupyter is Installed**
 
@@ -29,7 +22,7 @@ conda install -c anaconda jupyter
 # Alternatively, using pip
 pip install jupyter
 ```
-### **Request an Interactive Compute Node**
+### **Request an Interactive CPU Node**
 
 From the login node, run:
 ```sh
@@ -51,7 +44,8 @@ echo "Using port $NODEPORT"
 # Launch Jupyter without opening a browser
 jupyter notebook --no-browser --port=$NODEPORT
 ```
-Keep track of:  
+!!! info "Keep track of:"
+  
 	1.	The port number you see in `$NODEPORT`.  
 	2.	The notebook URL that Jupyter prints out (something like `http://localhost:19303/?token=...`).
 
@@ -68,9 +62,10 @@ ssh -t -t cais_cluster -L ${NODEPORT}:localhost:${NODEPORT} \
     ssh -N compute-permanent-node-123 \
     -L ${NODEPORT}:localhost:${NODEPORT}
 ```
-Explanation:  
-    •   The first SSH command connects you to the cluster’s login node.  
-    •   The second SSH command (nested inside) connects you from the login node to the compute node, while setting up port forwarding so that traffic on localhost:$NODEPORT flows to the Jupyter process.
+!!! info "Explanation:"
+
+    -   The first SSH command connects you to the cluster’s login node.  
+    -   The second SSH command (nested inside) connects you from the login node to the compute node, while setting up port forwarding so that traffic on localhost:$NODEPORT flows to the Jupyter process.
 
 ## **Open Jupyter Notebook in Your Browser**
 
@@ -80,7 +75,8 @@ http://localhost:19303/?token=cb2b708e5468268ase8c46448fc28e78bd049a977cdcbd65d1
 ```
 That’s it! You should now see the Jupyter Notebook interface running on the compute node, but accessible in your local browser. You can run notebooks as normal, including CPU- or GPU-based workloads as permitted by the node you requested with srun.
 
-Troubleshooting  
-	•	Port Already in Use: If you see an error about the port already in use, run the steps again with a different random port or specify export NODEPORT=##### manually.  
-	•	SSH Config: If your SSH setup differs, adjust commands to use an alias if you have one.  
-	•	Environment Issues: Ensure that your Python environment is loaded before running jupyter notebook.
+!!! tip "Troubleshooting"
+
+	-	Port Already in Use: If you see an error about the port already in use, run the steps again with a different random port or specify export NODEPORT=##### manually.  
+	-	SSH Config: If your SSH setup differs, adjust commands to use an alias if you have one.  
+	-	Environment Issues: Ensure that your Python environment is loaded before running jupyter notebook.

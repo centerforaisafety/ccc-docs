@@ -1,4 +1,4 @@
-# Collaboration
+# Storage
 
 ## **How to use the global Hugging Face model cache**
 

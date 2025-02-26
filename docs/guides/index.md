@@ -12,8 +12,7 @@ The Guides are divided into sections to help you find what you are trying to do:
 
         ??? tip "📡 Connect to the Cluster"
             [What is SSH?](/ccc-docs/guides/connect/what-is-ssh)  
-            [How to use SSH keys?](/ccc-docs/guides/connect/how-to-use-ssh-keys)  
-            [With CLI](/ccc-docs/guides/connect/with-cli)  
+            [With command line?](/ccc-docs/guides/connect/connect-with-cli)    
             [With VSCode](/ccc-docs/guides/connect/with-vscode)  
             [With Jupyter Notebook](/ccc-docs/guides/connect/with-juypter)
 
