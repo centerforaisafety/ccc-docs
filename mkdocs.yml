@@ -116,33 +116,31 @@ markdown_extensions:
 nav:
   - Home: 
       - Home: index.md
-      - Cluster Overview: cluster-overview.md # Let's combine the Home and cluster overview docs. No need to have multiple sections. I don't want users to miss something.
   - Getting Started: 
       - Getting Started: getting-started/index.md
-      - Cluster Policies: getting-started/cluster-policies.md
-      - What is Slurm and why do we use it?:
-          - What is Slurm?: getting-started/what-is-slurm.md
-          - How we configured Slurm on the cluster: getting-started/how-we-configured-slurm.md
+# todo      - Cluster Policies: getting-started/cluster-policies.md
   - Guides:
       - Overview: guides/index.md
       - Connect to the cluster: 
-          - What is SSH?: guides/connect_to_the_cluster/what-is-ssh.md
-          - How to use SSH keys: guides/connect_to_the_cluster/how-to-use-ssh-keys.md
-          - With CLI: guides/connect_to_the_cluster/with-cli.md
-          - With VSCode: guides/connect_to_the_cluster/with-vscode.md
-          - With Jupyter Notebook: guides/connect_to_the_cluster/with-juypter.md
+          - What is SSH?: guides/connect/what-is-ssh.md
+          - How to use SSH keys: guides/connect/how-to-use-ssh-keys.md
+          - With CLI: guides/connect/with-cli.md
+          - With VSCode: guides/connect/with-vscode.md
+          - With Jupyter Notebook: guides/connect/with-juypter.md
       - Running Jobs: 
-          - CPU jobs: guides/cpu-jobs.md
-          - GPU jobs: guides/gpu-jobs.md
+          - What is Slurm?: guides/running-jobs/what-is-slurm.md
+          - How we configured Slurm: guides/running-jobs/how-we-configured-slurm.md
+          - CPU jobs: guides/running-jobs/cpu-jobs.md
+          - GPU jobs: guides/running-jobs/gpu-jobs.md
       - Collaboration on the cluster:
-          - How to use the global Hugging Face model cache: guides/hugging-face-model-cache.md
-          - How to share files and directories: guides/how-to-share-files-and-directories.md
-          - How to request a shared folder: guides/how-to-request-a-shared-folder.md
+          - How to use the global Hugging Face model cache: guides/collaboration/hugging-face-model-cache.md
+          - How to share files and directories: guides/collaboration/how-to-share-files-and-directories.md
+          - How to request a shared folder: guides/collaboration/how-to-request-a-shared-folder.md
       - Configure your environment:
-          - How to switch your shell: guides/how-to-switch-your-shell.md
-          - How to configure job notifications: guides/how-to-configure-job-notifications.md
-          - How to request additional filesystem storage: guides/how-to-request-additional-filesystem-storage.md
-          - How to install Miniconda or Anaconda: guides/how-to-install-miniconda-or-anaconda.md
-          - How to resurrect your tmux sessions: guides/how-to-resurrect-your-tmux-sessions.md
-  - FAQ:
+          - How to switch your shell: guides/configuration/how-to-switch-your-shell.md
+          - How to configure job notifications: guides/configuration/how-to-configure-job-notifications.md
+          - How to request additional filesystem storage: guides/configuration/how-to-request-additional-filesystem-storage.md
+          - How to install Miniconda or Anaconda: guides/configuration/how-to-install-miniconda-or-anaconda.md
+          - How to resurrect your tmux sessions: guides/configuration/how-to-resurrect-your-tmux-sessions.md
+  - FAQ: 
       - Frequently Asked Questions: faq/index.md
