@@ -75,8 +75,6 @@ If you don’t have a public key, see: Generate a public/private key pair.
 cat ~/.ssh/authorized_keys
 ```
 
-
-
 ### **Delete an SSH key**
 
 ???+ Warning

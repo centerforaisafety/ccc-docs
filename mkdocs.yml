@@ -17,6 +17,7 @@ copyright: "Copyright © 2025 Center for AI Safety"
 theme:
   name: material
   logo: assets/cais_icon_white_text.png
+  favicon: assets/favicon.ico
   features:
     - content.action.edit
     - content.action.view
@@ -124,7 +125,7 @@ nav:
       - Connect to the cluster: 
           - What is SSH?: guides/connect/what-is-ssh.md
           - How to use SSH keys: guides/connect/how-to-use-ssh-keys.md
-          - With CLI: guides/connect/with-cli.md
+          - With the command line: guides/connect/with-cli.md
           - With VSCode: guides/connect/with-vscode.md
           - With Jupyter Notebook: guides/connect/with-juypter.md
       - Running Jobs: 
@@ -142,5 +143,6 @@ nav:
           - How to request additional filesystem storage: guides/configuration/how-to-request-additional-filesystem-storage.md
           - How to install Miniconda or Anaconda: guides/configuration/how-to-install-miniconda-or-anaconda.md
           - How to resurrect your tmux sessions: guides/configuration/how-to-resurrect-your-tmux-sessions.md
+  - Storage: storage/index.md
   - FAQ: 
       - Frequently Asked Questions: faq/index.md
