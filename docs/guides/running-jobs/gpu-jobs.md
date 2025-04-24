@@ -18,7 +18,7 @@ Here is an example sbatch script for a GPU job:
 ```sh
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-node=2  # 2 CPUs per GPU (default ratio)
+#SBATCH --cpus-per-task=2  # 2 CPUs per GPU (default ratio)
 #SBATCH --gpus=1
 #SBATCH --time=10:00
 #SBATCH --job-name=GPU_Example
