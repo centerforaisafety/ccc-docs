@@ -18,7 +18,7 @@ Here is an example `sbatch` script:
 ```sh
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-node=1
+#SBATCH --cpus-per-task=1
 #SBATCH --time=10:00
 #SBATCH --job-name=Example 
 
