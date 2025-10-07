@@ -6,7 +6,7 @@ If you have questions not answered here, please consult the [FAQ](faq/index.md) 
 
 ## **Cluster Overview**
 
-The CAIS Compute Cluster consists of **32 GPU nodes** (Oracle Cloud bare-metal servers), each with:
+The CAIS Compute Cluster consists of **10 GPU nodes** (Oracle Cloud bare-metal servers), each with:
 
 | Feature                 | Description                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------- |
