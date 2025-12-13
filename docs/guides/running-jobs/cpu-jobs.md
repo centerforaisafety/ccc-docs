@@ -4,9 +4,19 @@
 
 ### **Interactive CPU jobs**
 You can request an interactive CPU job with the `srun` Slurm command. 
+
+#### Available CPU Partitions
+
+When submitting CPU jobs, specify one of the following partitions using --partition (or -p) as the first argument
+	•	cais_cpu
+	•	schmidt_sciences_cpu
+	•	tamper_resistance_cpu
+
+
 ```sh
 # Request 1 cpu on 1 node
-srun --pty /bin/bash
+# cais partition
+srun --partition=cais_cpu --pty /bin/bash
 
 # Exit from the compute node to request a new node
 exit # or hit ctrl+d
