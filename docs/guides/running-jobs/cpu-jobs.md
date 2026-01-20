@@ -12,11 +12,16 @@ When submitting CPU jobs, specify one of the following partitions using --partit
 	•	schmidt_sciences_cpu
 	•	tamper_resistance_cpu
 
-
 ```sh
 # Request 1 cpu on 1 node
 # cais partition
 srun --partition=cais_cpu --pty /bin/bash
+
+# schmidt_sciences partition
+srun --partition=schmidt_sciences_cpu --pty /bin/bash
+
+# tamper_resistance_cpu partition
+srun --partition=tamper_resistance_cpu --pty /bin/bash
 
 # Exit from the compute node to request a new node
 exit # or hit ctrl+d
