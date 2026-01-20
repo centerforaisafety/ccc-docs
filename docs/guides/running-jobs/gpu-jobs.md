@@ -3,10 +3,26 @@
 ## **GPU jobs**
 
 ### **Interactive GPU jobs**
+
+Available partitions - similar to cpu partition
+- cais
+- schmidt_sciences
+- tamper_resistance
+
 You can request an interactive GPU job with the `srun` Slurm command.
 ```sh
 # Request 1 GPU on 1 node (2 CPU cores are allocated per GPU by default)
-srun --gpus=1 --pty /bin/bash
+srun --partition=cais --gpus=1 --pty /bin/bash
+srun --partition=cais --gres=gpu:1 --pty /bin/bash # also works
+
+# schmidt_sciences partition
+srun --partition=schmidt_sciences --gpus=1 --pty /bin/bash
+srun --partition=schmidt_sciences --gres=gpu:1 --pty /bin/bash
+
+# tamper_resistance partition
+srun --partition=tamper_resistance --gpus=1 --pty /bin/bash
+srun --partition=tamper_resistance --gres=gpu:1 --pty /bin/bash
+
 
 # Exit from the compute node to request a new node
 exit  # or hit ctrl+d
@@ -17,6 +33,7 @@ You can schedule a batch GPU job with the sbatch Slurm command, which will queue
 Here is an example sbatch script for a GPU job:
 ```sh
 #!/bin/bash
+#SBATCH --partition=<your-partition>
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=2  # 2 CPUs per GPU (default ratio)
 #SBATCH --gpus=1
