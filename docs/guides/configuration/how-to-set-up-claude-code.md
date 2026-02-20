@@ -1,4 +1,4 @@
-# How to Set Up Claude Code on the Cluster
+# How to Set Up Claude Code on the Cluster (CCCCC)
 
 ## What is Claude Code?
 
