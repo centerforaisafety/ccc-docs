@@ -134,6 +134,7 @@ nav:
       - Configure your environment:
           - Switch your shell: guides/configuration/switch-your-shell.md
           - How to install Miniconda or Anaconda: guides/configuration/how-to-install-miniconda-or-anaconda.md
+          - Claude Code Docs: guides/configuration/how-to-set-up-claude-code.md
           - How to resurrect your tmux sessions: guides/configuration/how-to-resurrect-your-tmux-sessions.md
       - Software:
           - What is Apptainer?: guides/software/what-is-apptainer.md
