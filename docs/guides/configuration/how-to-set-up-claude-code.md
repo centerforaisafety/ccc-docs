@@ -1,8 +1,8 @@
-# How to Set Up Claude Code on the OCI-HPC Cluster
+# How to Set Up Claude Code on the Cluster
 
 ## What is Claude Code?
 
-Claude Code is Anthropic's command-line coding agent. It runs in your terminal and can read files, write code, and execute commands on your behalf. On this cluster, we provide a shared configuration that teaches Claude the rules of our environment — Slurm, shared filesystems, GPU etiquette, and common pitfalls — so it behaves as a responsible cluster citizen from the first session without repeated, explicit instructions by the user.
+Claude Code is Anthropic's command-line coding agent. It runs in your terminal and can read files, write code, and execute commands on your behalf so you can spend your attention where it matters. On this cluster, we provide a shared configuration that teaches Claude the rules of our environment — Slurm, shared filesystems, GPU etiquette, and common pitfalls — so it behaves as a responsible cluster citizen from the first session.
 
 ## Prerequisites
 
@@ -39,8 +39,7 @@ echo 'cd /data/$USER' >> ~/.bashrc
 
 ## Step 3: Authenticate
 
-Run `claude` once to trigger the login flow. It will open a browser URL — if you're connected via SSH, copy the URL and open it on your local machine to complete authentication. 
-Copy the code back to terminal and press "Enter". 
+Run `claude` once to trigger the login flow. It will open a browser URL — if you're connected via SSH, copy the URL and open it on your local machine to complete authentication.
 
 If you're using an API key instead of a subscription:
 
@@ -52,26 +51,14 @@ Add that export to your `~/.bashrc` to persist it across sessions.
 
 ## Step 4: Set Up the Cluster Protocol
 
-We maintain a shared file at `/data/claude/cluster-citizen.md` that teaches Claude the rules of this cluster — Slurm partitions, filesystem boundaries, GPU etiquette, cgroup limits, and common pitfalls.
-
-To load it, use the `--append-system-prompt-file` flag when starting Claude:
-
-```bash
-claude --append-system-prompt-file /data/claude/cluster-citizen.md
-```
-
-This appends the cluster rules to Claude's default instructions. Your personal `~/.claude/CLAUDE.md` and any project-level settings still work normally — nothing is overwritten.
-
-### Make it the default
-
-To avoid typing the flag every time, add an alias to your `~/.bashrc`:
+We maintain a shared file at `/data/claude/cluster-citizen.md` that teaches Claude how to behave on this cluster. To load it automatically every time you run Claude, add this alias to your `~/.bashrc`:
 
 ```bash
 echo 'alias claude="claude --append-system-prompt-file /data/claude/cluster-citizen.md"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Now just typing `claude` loads the cluster protocol automatically.
+That's it. Now every time you type `claude`, the cluster rules are injected alongside Claude's default instructions and your personal configuration. Your `~/.claude/CLAUDE.md` and any project-level settings continue to work normally.
 
 ### Verify it's working
 
@@ -103,6 +90,34 @@ Claude loads this automatically when you run `claude` from that directory. It st
 
 ## Usage Tips
 
+### Use tmux for session persistence
+
+You're SSHing into the cluster. If your connection drops, your Claude Code session dies — unless you're inside tmux. Always start Claude inside a tmux session:
+
+```bash
+# Start a new tmux session
+tmux new -s claude
+
+# Now start Claude as normal
+claude
+
+# If your SSH drops, reconnect and reattach:
+tmux attach -t claude
+```
+
+Your conversation, running processes, and Claude's context are all preserved.
+
+tmux is also required if you want to use **agent teams** — Claude Code's feature for spawning multiple agents working in parallel in separate panes. Without tmux, agent teams still work but only in a single-terminal mode where you cycle between agents with `Shift+Up/Down`.
+
+Quick tmux reference:
+
+| Action | Keys |
+|---|---|
+| Detach (leave running) | `Ctrl+b` then `d` |
+| List sessions | `tmux ls` |
+| Reattach | `tmux attach -t claude` |
+| Kill session | `tmux kill-session -t claude` |
+
 ### Always use Slurm for heavy work
 
 Claude knows this rule, but reinforce it by telling Claude what you're doing:
@@ -115,29 +130,11 @@ Claude will use the correct partition names and resource flags for this cluster.
 
 ### Use conda, not pip --user
 
-All Python environments should be conda envs stored under `/data/$USER/`. If you don't have miniconda yet:
-
-```bash
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh
-bash /tmp/miniconda.sh -b -p /data/$USER/miniconda3
-/data/$USER/miniconda3/bin/conda init bash
-# Close and reopen your shell, then:
-conda create -n myenv python=3.11 -y
-conda activate myenv
-```
-
-### Set HuggingFace cache to /data
-
-If you download models from HuggingFace, make sure the cache doesn't fill your home directory:
-
-```bash
-echo 'export HF_HOME=/data/$USER/.cache/huggingface' >> ~/.bashrc
-source ~/.bashrc
-```
+All Python environments should be conda envs stored under `/data/$USER/`. If you don't have miniconda yet, follow the [How to Install Miniconda or Anaconda](how-to-install-miniconda-or-anaconda.md) guide.
 
 ### Reporting mistakes
 
-If Claude does something wrong that other users should be protected from — like trying to run training on the login node, or installing packages to the wrong location — report it to **[maintainer name / Slack channel]**. We maintain a shared lessons file that gets updated so every Claude session on the cluster learns from past mistakes.
+If Claude does something wrong that other users should be protected from — like trying to run training on the login node, or installing packages to the wrong location — report it to Jason Lim via Slack. We maintain a shared lessons file that gets updated so every Claude session on the cluster learns from past mistakes.
 
 ## Quick Reference
 
