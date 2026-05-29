@@ -138,6 +138,8 @@ nav:
           - How to resurrect your tmux sessions: guides/configuration/how-to-resurrect-your-tmux-sessions.md
       - Software:
           - What is Apptainer?: guides/software/what-is-apptainer.md
+      - LLM API:
+          - How to use LiteLLM for inference: guides/llm-api/how-to-use-litellm-for-inference.md
   - Storage: 
       - Storage: storage/index.md
       - Hugging Face model cache: storage/hugging-face-model-cache.md
