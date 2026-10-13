@@ -5,23 +5,13 @@
 ### **Interactive CPU jobs**
 You can request an interactive CPU job with the `srun` Slurm command. 
 
-#### Available CPU Partitions
+#### CPU partition
 
-When submitting CPU jobs, specify one of the following partitions using --partition (or -p) as the first argument
-	•	cais_cpu
-	•	schmidt_sciences_cpu
-	•	tamper_resistance_cpu
+When submitting CPU jobs, use the `compute_cpu` partition with `--partition=compute_cpu` (or `-p compute_cpu`).
 
 ```sh
 # Request 1 cpu on 1 node
-# cais partition
-srun --partition=cais_cpu --pty /bin/bash
-
-# schmidt_sciences partition
-srun --partition=schmidt_sciences_cpu --pty /bin/bash
-
-# tamper_resistance_cpu partition
-srun --partition=tamper_resistance_cpu --pty /bin/bash
+srun --partition=compute_cpu --pty /bin/bash
 
 # Exit from the compute node to request a new node
 exit # or hit ctrl+d
@@ -32,6 +22,7 @@ You can schedule a batch with the `sbatch` Slurm command which will place the jo
 Here is an example `sbatch` script:
 ```sh
 #!/bin/bash
+#SBATCH --partition=compute_cpu
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
 #SBATCH --time=10:00
@@ -59,15 +50,15 @@ Use `squeue` to check the status of your job:
 ```sh
 $ squeue -u $USER
      JOBID   PARTITION    NAME      USER ST   TIME  NODES NODELIST(REASON)
-    123456     compute Example <username> R    0:12    1   compute-permanent-node-535
+    123456 compute_cpu Example <username> R    0:12    1   compute-permanent-node-535
 ```
 
 ## **Slurm output file**
-By default, Slurm writes any output from your script to a file named slurm-<job-id>.out. You can list the contents of that output file as follows (using the same job ID that was returned by `sbatch`):
+By default, Slurm writes any output from your script to a file named `slurm-<job-id>.out`. You can list the contents of that output file as follows (using the same job ID that was returned by `sbatch`):
 ```sh
 $ cat slurm-123456.out
 gcc (GCC) 9.4.0
 Python 3.12.2
 ```
 
-You can customize the output file name by addin gdirectives (e.g., `#SBATCH --output=myjob.out`) in your `sbatch` script or specifying them at the command line.
+You can customize the output file name by adding directives (e.g., `#SBATCH --output=myjob.out`) in your `sbatch` script or specifying them at the command line.

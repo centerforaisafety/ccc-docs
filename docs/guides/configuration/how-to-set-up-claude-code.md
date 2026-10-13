@@ -68,7 +68,7 @@ Start a session and ask:
 > What partitions are available on this cluster?
 ```
 
-Claude should respond with `cais`, `cais_cpu`, `tamper_resistance`, and `tamper_resistance_cpu` without you needing to tell it.
+Claude should respond with `compute` for GPU jobs and `compute_cpu` for CPU jobs without you needing to tell it.
 
 ## Step 5 (Optional): Add Your Own CLAUDE.md
 
@@ -142,10 +142,10 @@ If Claude does something wrong that other users should be protected from — lik
 |---|---|
 | Start Claude | `claude` |
 | Check Slurm queue | `squeue -u $USER` |
-| Interactive GPU session | `salloc --partition=cais --gres=gpu:1 --time=01:00:00` |
+| Interactive GPU session | `salloc --partition=compute --gres=gpu:1 --time=01:00:00` |
 | Submit batch job | `sbatch job.slurm` |
 | Cancel a job | `scancel <jobid>` |
-| Check GPU availability | `sinfo -p cais --format="%N %G %t"` |
+| Check GPU availability | `sinfo -p compute --format="%N %G %t"` |
 | Activate conda env | `conda activate myenv` |
 
 ## Troubleshooting

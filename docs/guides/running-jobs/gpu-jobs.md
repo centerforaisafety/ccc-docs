@@ -4,25 +4,13 @@
 
 ### **Interactive GPU jobs**
 
-Available partitions - similar to cpu partition
-- cais
-- schmidt_sciences
-- tamper_resistance
+When submitting GPU jobs, use the `compute` partition with `--partition=compute` (or `-p compute`).
 
 You can request an interactive GPU job with the `srun` Slurm command.
 ```sh
 # Request 1 GPU on 1 node (2 CPU cores are allocated per GPU by default)
-srun --partition=cais --gpus=1 --pty /bin/bash
-srun --partition=cais --gres=gpu:1 --pty /bin/bash # also works
-
-# schmidt_sciences partition
-srun --partition=schmidt_sciences --gpus=1 --pty /bin/bash
-srun --partition=schmidt_sciences --gres=gpu:1 --pty /bin/bash
-
-# tamper_resistance partition
-srun --partition=tamper_resistance --gpus=1 --pty /bin/bash
-srun --partition=tamper_resistance --gres=gpu:1 --pty /bin/bash
-
+srun --partition=compute --gpus=1 --pty /bin/bash
+srun --partition=compute --gres=gpu:1 --pty /bin/bash # also works
 
 # Exit from the compute node to request a new node
 exit  # or hit ctrl+d
@@ -33,7 +21,7 @@ You can schedule a batch GPU job with the sbatch Slurm command, which will queue
 Here is an example sbatch script for a GPU job:
 ```sh
 #!/bin/bash
-#SBATCH --partition=<your-partition>
+#SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=2  # 2 CPUs per GPU (default ratio)
 #SBATCH --gpus=1
@@ -75,8 +63,8 @@ Tue Feb 25 23:06:42 2025
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:91:00.0 Off |                    0 |
-| N/A   36C    P0             85W /  400W |       1MiB /  81920MiB |      0%      Default |
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:91:00.0 Off |                    0 |
+| N/A   36C    P0             85W /  700W |       1MiB /  81920MiB |      0%      Default |
 |                                         |                        |             Disabled |
 +-----------------------------------------+------------------------+----------------------+
                                                                                          

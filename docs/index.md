@@ -10,7 +10,7 @@ The CAIS Compute Cluster consists of **10 GPU nodes** (Oracle Cloud bare-metal s
 
 | Feature                 | Description                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------- |
-| **GPU Nodes**           | 10 GPU nodes (Oracle Cloud bare-metal), each with 8× NVIDIA A100 80GB GPUs (total 80)  |
+| **GPU Nodes**           | 10 GPU nodes (Oracle Cloud bare-metal), each with 8× NVIDIA H100 80GB GPUs (total 80)  |
 | **CPU Cores**           | Dual 64-core AMD CPUs per node (total 1280 CPU cores across the cluster)                |
 | **Local NVMe SSD**      | 27.2 TB per node (272 TB total system storage)                                          |
 | **RDMA Network**        | 1,600 Gbit/sec total, providing high-bandwidth and low-latency inter-node communication |

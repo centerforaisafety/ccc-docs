@@ -25,7 +25,7 @@ If you are having trouble logging in check out our section on [SSH](/ccc-docs/gu
 ## Getting compute
 Get an interactive session on a node with a single GPU and two CPU cores (the default ratio is 2 CPUs per GPU):
 ```sh
-$ <username>@cais-login-0:~$ srun --gpus=1 --pty /bin/bash
+$ <username>@cais-login-0:~$ srun --partition=compute --gpus=1 --pty /bin/bash
 $ <username>@compute-permanent-node-535:~$
 ```
 Run a command
@@ -39,8 +39,8 @@ Tue Feb 25 22:08:12 2025
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:91:00.0 Off |                    0 |
-| N/A   36C    P0             85W /  400W |       1MiB /  81920MiB |      0%      Default |
+|   0  NVIDIA H100 80GB HBM3          On  |   00000000:91:00.0 Off |                    0 |
+| N/A   36C    P0             85W /  700W |       1MiB /  81920MiB |      0%      Default |
 |                                         |                        |             Disabled |
 +-----------------------------------------+------------------------+----------------------+
                                                                                          
